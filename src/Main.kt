@@ -1,7 +1,14 @@
+import decorator.CheeseDecorator
+import decorator.MargheritaPizza
+import decorator.MushroomDecorator
+import decorator.Pizza
+import prototype.GameBotCharacter
+import prototype.Testing
 import proxy.protection_proxy.DatabaseProxy
 import proxy.protection_proxy.MySqlDatabase
 import proxy.remote_proxy.local.WeatherProxy
 import proxy.remote_proxy.remote.WeatherService
+import sun.awt.Mutex
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -41,8 +48,30 @@ fun main() {
   //  db.delete()
 
     // Remote Proxy
-    val service = WeatherProxy(WeatherService())
-    service.getWeather()
+   // val service = WeatherProxy(WeatherService())
+   // service.getWeather()
+
+    // Decorator pattern
+//    var pizza = MargheritaPizza() as Pizza
+//    println(pizza.getDescription() + " " + pizza.getCost())
+//
+//    pizza = CheeseDecorator(pizza)
+//    println(pizza.getDescription() + " " + pizza.getCost())
+//
+//    pizza = MushroomDecorator(pizza)
+//    println(pizza.getDescription() + " " + pizza.getCost())
+
+    val gameBotCharacter1 = GameBotCharacter.createBotCharacter("Game Bot1", 100, 0, mutableListOf("Rifle"))
+    val gameBotCharacter2 = gameBotCharacter1.clone()
+    val gameBotCharacter3 = gameBotCharacter1.clone()
+    val gameBotCharacter4 = gameBotCharacter1.clone()
+    val weapons = gameBotCharacter4.weapons
+    weapons.add("Kalachnikov")
+
+    println(gameBotCharacter1)
+    println(gameBotCharacter2)
+    println(gameBotCharacter3)
+    println(gameBotCharacter4)
 
 
 
