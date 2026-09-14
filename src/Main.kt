@@ -1,11 +1,7 @@
-import adapter.PaymentClient
-import adapter.PaypalAdapter
-import adapter.PaypalGateway
-import observer.CurrentConditionsDisplay
-import observer.WeatherStation
-import strategy.Push
-import strategy.compress.GzipCompression
-import strategy.encrypt.AESEncryption
+import proxy.protection_proxy.DatabaseProxy
+import proxy.protection_proxy.MySqlDatabase
+import proxy.remote_proxy.local.WeatherProxy
+import proxy.remote_proxy.remote.WeatherService
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -27,9 +23,26 @@ fun main() {
 //    payment.makePayment()
 
     // Strategy Pattern
-    val push  = Push(AESEncryption(), GzipCompression())
-    push.send()
-    push.compress()
+//    val push  = Push(AESEncryption(), GzipCompression())
+//    push.send()
+//    push.compress()
+
+
+    // Virtual  Proxy Pattern
+//    val video1 = ProxyMovie("Groki.mp4")
+//    val video2 = ProxyMovie("Molne.txt")
+//    val video3 = ProxyMovie("Juine.txt")
+//    val video4 = ProxyMovie("Hertio.txt")
+   // video1.play()
+  //  video1.play()
+
+    // Protection proxy
+  //  val db = DatabaseProxy(MySqlDatabase(), "ADLEMIN")
+  //  db.delete()
+
+    // Remote Proxy
+    val service = WeatherProxy(WeatherService())
+    service.getWeather()
 
 
 
